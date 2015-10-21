@@ -1,0 +1,36 @@
+/* use element selector to select all p elements for this style */
+p {
+    color: rebeccapurple;
+    font-size: 3em;
+}
+
+div {
+    color: indigo;
+    font-size: 2em;
+}
+
+/* use class selector to define style for elements */
+
+.munoma {
+    background-color: coral;
+    color: darkred;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.fancy {
+    margin: 3em;
+    color: forestgreen;
+    border: 2px dashed blue;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Use id selector to define style */
+
+#thing {
+    margin: 3em;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: azure;
+}
