@@ -6,7 +6,13 @@ body {
 
 p {
     color: rebeccapurple;
-    font-size: 3em;
+    font-size: 1.5em;
+}
+
+footer p {
+    color: lightgray;
+    font-size: 0.8em;
+    text-align: center;
 }
 
 div {
@@ -37,5 +43,5 @@ div {
     padding: 3em;
     text-transform: uppercase;
     text-align: center;
-    background-color: azure;
+    background-color: darkgoldenrod
 }
