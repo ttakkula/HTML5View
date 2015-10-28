@@ -9,6 +9,10 @@ p {
     font-size: 1.5em;
 }
 
+footer {
+    margin-top: 3em;
+}
+
 footer p {
     color: lightgray;
     font-size: 0.8em;
@@ -17,7 +21,7 @@ footer p {
 
 div {
     color: indigo;
-    font-size: 2em;
+    font-size: 1em;
 }
 
 /* use class selector to define style for elements */

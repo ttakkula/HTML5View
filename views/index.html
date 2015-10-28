@@ -3,18 +3,51 @@
     <head>
         <meta charset="utf-8">
         <title>Hello world!</title>
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
         <link href="/css/styles.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <div>
+        <div class="container">
             <nav id="head">
             <a href="http://www.akuankka.fi">Aku-ankka</a>
             <a href="http://www.hs.fi">Helsingin Sanomat</a>
             <a href="http://www.kaleva.fi">Kaleva</a>
             </nav>
-            <section>
+            <section class="row">
+            <div class="col-md-8 col-md-offset-2">
                 <h1 class="about">About</h1>
                 <p class="about">Here is some loremipsum.</p>
+                
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                    <h1 class="panel-title">Osoitteet</h1>
+                    </div>
+                <div class="panel-body">
+                <table class="table">
+                    <caption>Esimerkkitaulukko</caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                </div>
+                </div>
+                
+                <div id="otsikot">
+                </div>
+                
+                <h2>Top three</h2>
+                <div id="topthree">
+                </div>
+                
+                </div>
             </section>
             <footer data-dummy="">
                 <p>&copy; Ohjelmistokehitys</p>
