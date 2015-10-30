@@ -7,7 +7,7 @@ $(document).ready(function(){
     $(".about").html("<em>New text</em>");
     $("[data-dummy]").css("transform","rotate(20deg)");
     $("[data-dummy]").html("<p>Hello World</p>");
-    
+
     var setting = {
         method:"GET",
         url:"http://localhost:28017/oma/person/",
@@ -16,14 +16,33 @@ $(document).ready(function(){
     }
     $.ajax(setting).done(function(data){
         console.log(data);
-        for(i=2; i < data.rows.length; i++){
+        //Get all keys (attribute names) from json object
+        console.log(Object.keys(data.rows[0]));
+        
+        //Check that there are elements in array
+        if (data.rows.length > 0){
+            //Create table headers dynamically
+            var headers = Object.keys(data.rows[0]);
+            
+            var row = $("<tr></tr>");
+            //Leave id-field out by entering number 1
+            for (var i = 1; i < headers.length; i++){
+                //Create header and add it to row
+                $("<th>" + headers[i] + "</th>").appendTo(row);
+            }
+            //Add row to thead element
+            $(row).appendTo("table#dyn-table thead");
+        }
+        
+        for(i=0; i < data.rows.length; i++){
             
             var html = "<tr>" +
                        "<td>" + data.rows[i].name + "</td>" +
                        "<td>" + data.rows[i].address + "</td>" +
                        "<td>" + data.rows[i].age + "</td>" +
+                       "<td>" + data.rows[i].email + "</td>" +
                        "</tr>";
-            $(html).appendTo("tbody");
+            $(html).appendTo("tbody#no-dyn");
         }
         for(i=0; i < data.rows.length; i++){
             
