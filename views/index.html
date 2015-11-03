@@ -22,16 +22,19 @@
                 
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                    <h1 class="panel-title">Osoitteet</h1>
+                    <a href="addPerson.html" class="btn btn-success btn-sm pull-right">Add new person</a>
+                        <h1 class="panel-title">Persons-taulu</h1>
+                        <div class="clearfix"></div>
                     </div>
                 <div class="panel-body">
-                <table class="table" id="dyn-table">
+                    <table class="table" id="dyn-table">
                     <caption>Dynaaminen taulu</caption>
                     <thead>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
+                <hr>
                 <table class="table">
                     <caption>Esimerkkitaulukko</caption>
                     <thead>
@@ -39,7 +42,8 @@
                             <th>Name</th>
                             <th>Address</th>
                             <th>Age</th>
-                            <th>Email</th>                            
+                            <th>Email</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody id="no-dyn">
@@ -48,6 +52,7 @@
                 </table>
 
                 </div>
+                <div class="panel-footer text-center"><a href="addPerson.html" class="btn btn-default btn-sm">Add new person</a></div>
                 </div>
                 
                 <div id="otsikot">

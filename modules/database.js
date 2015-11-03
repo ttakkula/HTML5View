@@ -16,7 +16,7 @@ function connectionStatus(err,ok){
 var Person = mongoose.model('person',{
     name:String,
     address:String,
-    age:{type:Number},
+    age:Number,
     email:String
 },'person');
 
