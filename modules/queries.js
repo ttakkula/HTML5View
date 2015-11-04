@@ -27,3 +27,36 @@ exports.saveNewPerson = function(req,res){
         res.send("Database action done");
     })
 }
+
+/**
+  *This function deletes one person from our person collection
+  */
+
+exports.deletePerson = function(req,res){
+    //What happens here is that req.params.id return string "id=38901798141afölsfj" split function splits the string from "=" and creates an array where [0] contains "id" and [1] contains "38901798141afölsfj"
+    var id = req.params.id.split("=")[1];
+    db.Person.remove({_id:id},function(err){
+        if (err){
+            res.send(err.message);
+        }
+        else {
+            res.send("Delete ok");
+        }
+    });
+}
+
+/**
+  *This function updates one person info in our person collection
+  */
+
+exports.updatePerson = function(req,res){
+    var updateData = {
+        name:req.body.name,
+        address:req.body.address,
+        age:req.body.age,
+        email:req.body.email,
+    }
+    db.Person.update({_id:req.body.id},updateData,function(err){
+        res.send({data:ok});
+    })
+}
