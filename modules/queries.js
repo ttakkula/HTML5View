@@ -57,6 +57,6 @@ exports.updatePerson = function(req,res){
         email:req.body.email,
     }
     db.Person.update({_id:req.body.id},updateData,function(err){
-        res.send({data:ok});
+        res.send({data:"ok"});
     })
 }
