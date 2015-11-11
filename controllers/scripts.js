@@ -11,7 +11,31 @@ $(document).ready(function(){
     $(".about").html("<em>New text</em>");
     $("[data-dummy]").css("transform","rotate(20deg)");
     $("[data-dummy]").html("<p>Hello World</p>");
-
+    
+    $("#search").click(function(){
+        var text = $("#search_text").val();
+        $.ajax({
+            method:"GET",
+            url:"http://localhost:3000/persons/nimi=" + text
+        }).done(function(data){
+            console.log(data);
+            $("tbody#no-dyn").children().remove();
+        for(i=0; i < data.length; i++){
+            var html = "<tr>" +
+                       "<td>" + data[i].name + "</td>" +
+                       "<td>" + data[i].address + "</td>" +
+                       "<td>" + data[i].age + "</td>" +
+                       "<td>" + data[i].email + "</td>" +
+                       "<td><input type='button' id=" + data[i]._id + " value='Modify' class='btn btn-default btn-sm'></td>" +
+                       "</tr>";
+            $(html).appendTo("tbody#no-dyn");
+        }            
+            
+        }).error(function(err){
+        
+        });
+    });
+    
     var setting = {
         method:"GET",
         url:"http://localhost:3000/persons",
@@ -37,7 +61,7 @@ $(document).ready(function(){
             //Add row to thead element
             $(row).appendTo("table#dyn-table thead");
         }
-        
+        // Create table content dynamically
         for(i=0; i < data.length; i++){
             
             var html = "<tr>" +

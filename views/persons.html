@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+        <title>Hello world!</title>
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
+        <link href="/css/styles.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <nav id="head">
+            <a href="http://www.akuankka.fi">Aku-ankka</a>
+            <a href="http://www.hs.fi">Helsingin Sanomat</a>
+            <a href="http://www.kaleva.fi">Kaleva</a>
+            <a href="addPerson.html">Lisää henkilö</a>
+            </nav>
+            <section class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 class="about">About</h1>
+                <p class="about">Here is some loremipsum.</p>
+                
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                    <a href="addPerson.html" class="btn btn-success btn-sm pull-right">Add new person</a>
+                        <h1 class="panel-title">Persons-taulu</h1>
+                        <div class="clearfix"></div>
+                    </div>
+                <div class="panel-body">
+                      <div class="form-group">
+                        <label for="exampleInputName2">Hae nimen perusteella</label>
+                        <input type="text" class="form-control" id="search_text" placeholder="Search by name">
+                        <input type="submit" class="btn btn-default" value="Search" id="search">    
+                      </div>
+                    <table class="table" id="dyn-table">
+                    <caption>Dynaaminen taulu</caption>
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <hr>
+                <table class="table">
+                    <caption>Esimerkkitaulukko</caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="no-dyn">
+
+                    </tbody>
+                </table>
+
+                </div>
+                <div class="panel-footer text-center"><a href="addPerson.html" class="btn btn-default btn-sm">Add new person</a></div>
+                </div>
+                
+                <div id="otsikot">
+                </div>
+                
+                <h2>Top three</h2>
+                <div id="topthree">
+                </div>
+                
+                </div>
+            </section>
+            <footer data-dummy="">
+                <p>&copy; Ohjelmistokehitys</p>
+            </footer>
+        </div>
+<!--        
+        
+        <a href="http://www.akuankka.fi">Aku-ankka</a>
+        <div>Hello!</div>
+        <p id="para1">Hello earth habitants!</p>
+        <div>
+        Hello moon habitants!
+        </div>
+        <div class="fancy">Fancy!</div>
+        <div class="munoma">Oma blokki</div>
+        <div class="fancy munoma">
+        <ol>
+            <li>Yy</li>
+            <li>Kaa</li>
+            <li>Koo</li>
+        </ol>
+        </div>
+        <div>
+            <img src="http://placehold.it/350x150">
+            <p>Placeholder</p>
+        </div>
+        <p id="thing">The Thing</p>
+        <input type="color" class="nice">
+        <input type="text" placeholder="Enter your name">
+        <input type="date">
+        <input type="datetime">
+        <input type="time">
+-->
+        <script src="/lib/jquery-2.1.4.min.js"></script>
+        <script src="/controllers/scripts.js"></script>
+    </body>
+</html>

@@ -12,7 +12,13 @@ function connectionStatus(err,ok){
         console.log("We are connected!");
     }
 }
-
+/*
+var User = mongoose.model('User',{
+    username:{type:String,unique:true},
+    password:String,
+    friends:[{type:mongoose.Schema.type.ObjectId,ref:'Person'}]
+});
+*/
 var Person = mongoose.model('person',{
     name:String,
     address:String,
