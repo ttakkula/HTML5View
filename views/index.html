@@ -1,9 +1,10 @@
 <html lang="fi">
     <head>
         <meta charset="utf-8">
-        <title>Login Friends</title>
+        <title>Login / Register - Friends app</title>
         <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Amaranth:700' rel='stylesheet' type='text/css'>
     </head>
     <style>
 body {
@@ -19,6 +20,21 @@ background-image:         linear-gradient(to bottom, #a198ad, #e6998c);
     background: radial-gradient(circle at 20.01% 25.97%, #662cb4, transparent 70%),radial-gradient(circle at 87.01% 54.99%, #7d4584, transparent 46%),radial-gradient(circle at 76.97% 78.97%, #f2f6e7, transparent 22%),radial-gradient(circle at 57.02% 56.99%, #35c7fe, transparent 77%),radial-gradient(circle at 75.00% 43.01%, #45e1f7, transparent 34%),radial-gradient(circle at 50% 50%, #cde9cb, #cde9cb 100%);
 }
 
+        h1 {
+            font-family: 'Amaranth', sans-serif;
+            font-weight: 700;
+            font-size: 4em;
+            color: white;
+            text-align: center;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), 1px 5px 24px rgba(50, 50, 50, 0.72);
+        }
+        
+        h2 {
+            font-size: 2em;
+            line-height: 1.3em;
+            color: indigo;
+        }
+        
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -58,7 +74,9 @@ background-image:         linear-gradient(to bottom, #a198ad, #e6998c);
             padding-bottom: 1em;
 }
         .panel-heading {
-            border-bottom: 3px solid #e6998c;
+            border-bottom-width: 5px;
+            border-bottom-style: solid;
+            border-bottom-color: indigo;
         }
         .panel {
 -webkit-box-shadow: 0px 1px 24px 0px rgba(50, 50, 50, 0.72);
@@ -71,24 +89,24 @@ box-shadow:         0px 1px 24px 0px rgba(50, 50, 50, 0.72);
 
         
     </style>
-    <body>
+    
+ <body>  
     <div class="container">
-
+      <h1>Friends app</h1>
       <form class="form-signin">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading" style="border-bottom-color: indigo">
         <h2 class="form-signin-heading text-center">Login or register to Friends app!</h2>
         </div>
         <div class="panel-body">
-        <label for="username" class="sr-only">Username</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Password" required>
-        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Register">
-        <input type="submit" class="btn btn-lg btn-success btn-block" value="Login">
-        
-        <div class="alert alert-danger" id="status">Not logged in</div>
-      </div>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="Password" required>
+            <input type="button" class="btn btn-lg btn-success btn-block" value="Login" id="login">
+            <input type="button" class="btn btn-lg btn-primary btn-block" value="Register" id="register">
+            <div class="alert alert-default hidden" id="status"><strong>Not logged in</strong></div>
+        </div>
           <div class="panel-footer text-center text-muted"><small>Loremipsum company</small></div>
       </div>
       </form>
@@ -96,6 +114,7 @@ box-shadow:         0px 1px 24px 0px rgba(50, 50, 50, 0.72);
     </div> <!-- /container -->
 
     <script src="/lib/jquery-2.1.4.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>        
     <script src="/controllers/login_script.js"></script>
   </body>
 </html>

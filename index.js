@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var database = require('./modules/database');
 var queries = require('./modules/queries');
 var person = require('./modules/person');
+var user = require('./modules/user');
 var app = express();
 //======================Middlewares==================================
 
@@ -27,6 +28,7 @@ app.use('/controllers',express.static(path.join(__dirname, 'controllers')));
 app.use('/lib',express.static(path.join(__dirname, 'lib')));
 
 app.use('/persons',person);
+app.use('/friends',user);
 //======================ROUTERS======================================
 /*
 app.get("/persons",function(req,res){
