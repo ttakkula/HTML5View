@@ -9,6 +9,7 @@ $(document).ready(function(){
   */
 
 function loginHandler(event){
+    console.log("Login pressed");
     var requestData = {
         username:$("#username").val(),
         password:$("#password").val()

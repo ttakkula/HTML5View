@@ -19,7 +19,7 @@ var User = mongoose.model('User',{
     friends:[{type:mongoose.Schema.Types.ObjectId,ref:'Person'}]
 });
 
-var Person = mongoose.model('person',{
+var Person = mongoose.model('Person',{
     name:String,
     address:String,
     age:Number,

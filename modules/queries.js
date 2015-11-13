@@ -24,25 +24,46 @@ exports.saveNewPerson = function(req,res){
     var personTemp = new db.Person(req.body);
     //Save it to database
     personTemp.save(function(err,ok){
-        //res.send("Database action done");
-        //Make a redirect to root context
-        res.redirect('/');
-    })
+        db.Friends.update({username:req.body.user},
+                         {$push:{'friends':personTemp._id}},
+                         function(err,model){
+            
+            //Make a redirect to root context
+            //HUOM! Vastaus pakollinen!
+            //res.redirect('/');
+            res.send("Added stuff");
+        });
+    });
 }
 
 /**
   *This function deletes one person from our person collection
   */
 
+//This function deletes one person from our collection
 exports.deletePerson = function(req,res){
-    //What happens here is that req.params.id return string "id=38901798141afölsfj" split function splits the string from "=" and creates an array where [0] contains "id" and [1] contains "38901798141afölsfj"
+    
+    //what happens here is that req.params.id
+    //return string "id=34844646bbsksjdks"
+    //split function splits the string form "="
+    //and creates an array where [0] contains "id"
+    //and [1] contains "34844646bbsksjdks"
+    console.log(req.params);
     var id = req.params.id.split("=")[1];
+    var userName = req.params.username.split("=")[1];
     db.Person.remove({_id:id},function(err){
-        if (err){
+        
+        if(err){
             res.send(err.message);
         }
-        else {
-            res.send("Delete ok");
+        else{
+            //If succesfully removed remome also reference from
+            //User collection
+            db.Friends.update({username:userName},{$pull:{'friends':id}},function(err,data){
+                console.log(err);
+                res.send("Delete ok");    
+            });
+            
         }
     });
 }
@@ -68,6 +89,20 @@ exports.updatePerson = function(req,res){
   */
 
 exports.findPersonsByName = function(req,res){
+    
+    var name = req.params.nimi.split("=")[1];
+    var username = req.params.username.split("=")[1];
+    console.log(name);
+    console.log(username);
+    db.Friends.find({username:username}).
+        populate({path:'friends',match:{name:{'$regex':'^' + name,'$options':'i'}}}).
+            exec(function(err,data){
+        console.log(err);
+        console.log(data);
+        res.send(data[0].friends);
+    });
+    
+/*exports.findPersonsByName = function(req,res){
     var name = req.params.nimi.split("=")[1];
     console.log("name:" + name);
     db.Person.find({name:{'$regex':'^' + name,'$options':'i'}},function(err,data){
@@ -79,6 +114,7 @@ exports.findPersonsByName = function(req,res){
             res.send(data);
         }
     });
+    */
 }
 
 exports.registerFriend = function(req,res){
@@ -117,11 +153,14 @@ exports.loginFriend = function(req,res){
   */
 
 exports.getFriendsByUsername = function(req,res){
+    
     var usern = req.params.username.split("=")[1];
     db.Friends.find({username:usern}).
-    populate('friends').exec(function(err,data){
-        console.log(err);
-        console.log(data);
-        res.send(data.friends);
-    });
+        populate('friends').exec(function(err,data){
+            
+            console.log(err);
+            console.log(data[0].friends);
+            res.send(data[0].friends);
+        
+        });
 }
